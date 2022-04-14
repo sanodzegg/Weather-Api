@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- styling -->
+    <link rel="stylesheet" href="./style/master.css">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="navbar__logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#ff937a;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#fffc7a;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M9.417 0h6.958l-3.375 8h7l-13 16 4.375-11h-7.375z"/></svg>
+        </div>
+        <div class="navbar__search">
+            <input type="text" name="searchBar" id="search">
+            <svg id="searchBtn" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"/></svg>
+        </div>
+    </nav>
+    <section class="main" role="main content">
+        <main class="main__random">
+            <h1 class="main__random-header" id="userCountry">
+                London, UK
+            </h1>
+            <h5 class="main__date" id="currentDate">
+                Monday 29 August
+            </h5>
+            <div class="main__weather-info">
+                <div class="weather__temperature">
+                    <img src="./public/svg/sun-clouds.svg">
+                    <div class="weather__temperature-info">
+                        <div class="weather__temperature-wrapper">
+                            <h1 id="userTemperature">21</h1>
+                            <span id="floatDegree">.23</span>
+                        </div>
+                        <h5 id="userWeatherDescription">Mostly sunny</h5>
+                    </div>
+                </div>
+                <div class="weather__divider"></div>
+                <div class="weather__info">
+                    <div class="weather__info-wrapper"><h5>23</h5><h6>Dew Point</h6></div>
+                    <div class="weather__info-wrapper"><h5 id="windSpeed">7mph</h5><h6>Wind</h6></div>
+                    <div class="weather__info-wrapper"><h5 id="sunriseTime">05:27</h5><h6>Sunrise</h6></div>
+                    <div class="weather__info-wrapper"><h5>14</h5><h6>Low</h6></div>
+                    <div class="weather__info-wrapper"><h5>0%</h5><h6>Rain</h6></div>
+                    <div class="weather__info-wrapper"><h5 id="sunsetTime">20:57</h5><h6>Sunset</h6></div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <script src="./public/index.js"></script>
+</body>
+</html>
