@@ -1,13 +1,38 @@
-@import url(../node_modules/normalize.less/normalize.less);
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
 body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
     height: 100vh;
-    background: linear-gradient(#2935B4, #1A5AC1) no-repeat;
+    background-color: #1A5AC1;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: background-color .5s ease-in-out;
 
     h1,h2,h3,h4,h5,h6,p,span {
         margin: 0;
         padding: 0;
+    }
+
+    #popup {
+        position: absolute;
+        top: -75px;
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        background-color: #191919;
+        padding: 1rem 1rem;
+        border-radius: 10px;
+        
+        transition: top .5s ease-in-out;
+
+        p {
+            display: inline-block;
+            max-width: 300px;
+            color: #f5f5f5;
+            text-align: center;
+        }
     }
 }
 .navbar {
@@ -38,9 +63,92 @@ body {
         svg {
             position: absolute;
             right: 15px;
-            top: 10px;
+            top: 8px;
             fill: #5f80b5;
             cursor: pointer;
+        }
+
+        .search__results {
+            position: absolute;
+            top: 40px;
+
+            overflow: hidden;
+            height: 0;
+
+            font-size: 1.3rem;
+            color: #282828;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            padding: 0 1rem;
+
+            width: 318px;
+
+            cursor: pointer;
+
+            .results__wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+
+                max-width: 100%;
+
+                #searchResultIcon {
+                    width: 15%;
+                }
+    
+                #searchResultDescription {
+                    padding: 0 1rem;
+                    text-transform: capitalize;
+                }
+    
+                #searchResultTemperature {
+                    padding-left: 2rem;
+                }
+            }
+
+            #loaderIcon {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                animation: loading 3s linear infinite;
+            }
+        }
+
+        .search__results:hover {
+            background-color: #e0e0e0;
+        }
+
+        .nm:hover {
+            background-color: #1A5AC1;
+            color: #f5f5f5;
+        }
+    }
+    .navbar__r {
+        display: flex;
+        align-items: center;
+    }
+    .navbar__theme {
+        position: relative;
+        width: 50px;
+        height: 25px;
+        margin-left: 50px;
+        border-radius: 25px;
+        background-color: #f5f5f5;
+        cursor: pointer;
+
+        .navbar__switch {
+            position: absolute;
+            left: 5px;
+            top: 12%;
+            transform: translateX(-12%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #1A5AC1;
+            transition: all .5s ease-in-out;
+        }
+        .active {
+            left: 30px;
         }
     }
 }
@@ -50,6 +158,8 @@ body {
     width: 1400px;
     max-width: 100%;
     margin: 0 auto;
+
+    padding: 3.5rem 0;
 
     .main__random {
         color: #f5f5f5;
@@ -137,5 +247,80 @@ body {
             }
         }
     }
+}
 
+.week__section {
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    padding-top: 5vw;
+
+    .week__wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: #1A45A0;
+
+        color: #f5f5f5;
+        font-size: 1rem;
+        font-weight: normal;
+        padding: 15px 45px;
+        border-radius: 10px;
+
+        transition: background-color .5s ease-in-out;
+
+        min-height: 247.34px;
+
+        .week__icon {
+            width: 100%;
+            padding: 35px 0;
+        }
+    }
+    
+    .nm {
+        background-color: #1f1f1f;
+    }
+}
+
+
+@keyframes show {
+    0% {
+        height: 0;
+    } 100% {
+        height: 47.69px;
+    }
+}
+
+@keyframes hide {
+    0% {
+        height: 47.69px;
+    } 100% {
+        height: 0;
+    }
+}
+
+@keyframes loading {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    } 100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes showPopup {
+    0% {
+        top: -75px;
+    } 100% {
+        top: 0px;
+    }
+}
+
+@keyframes hidePopup {
+    0% {
+        top: 0px;
+    } 100% {
+        top: -75px;
+    }
 }
