@@ -8,8 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-// const API_KEY = "3904a619c0f5dcf46f467b1944ab6d1d";
-const API_KEY = config.API_KEY;
+const API_KEY = "3904a619c0f5dcf46f467b1944ab6d1d";
 const getInfoBtn = document.getElementById("searchBtn");
 const inputValue = document.getElementById("search");
 // current date
@@ -19,6 +18,7 @@ const day = date.getUTCDate();
 const fullDate = `${day} ${month}`;
 // 
 let userLocation;
+const mainSection = document.getElementById("mainSection");
 const weatherIcon = document.getElementById("weatherIcon");
 const userCountry = document.getElementById("userCountry");
 const currentDate = document.getElementById("currentDate");
@@ -141,7 +141,13 @@ const findUserLocation = (type) => __awaiter(void 0, void 0, void 0, function* (
             newData.fill();
         });
         const error = () => {
-            console.log("unable");
+            let node = document.createElement("div");
+            node.setAttribute("id", "errPopup");
+            node.innerText = "We can not display your current location until you give us an access";
+            mainSection.append(node);
+            node.addEventListener("click", () => {
+                node.style.display = "none";
+            });
         };
         navigator.geolocation.getCurrentPosition(success, error);
     }
@@ -218,7 +224,6 @@ const generateForecast = (data, type) => __awaiter(void 0, void 0, void 0, funct
                     let month = date.toLocaleString('default', { month: 'long' });
                     let day = date.getUTCDate();
                     let fullDate = `${day} ${month}`;
-                    console.log(true);
                     weekWeatherSection.innerHTML +=
                         `
                     <div class="week__wrapper ${localTheme == false ? "nm" : ""}">
@@ -249,6 +254,9 @@ const themeChanger = (type) => {
         setTimeout(() => {
             node.style.animation = "hidePopup 1s forwards";
         }, 2500);
+        setTimeout(() => {
+            node.remove();
+        }, 3000);
     };
     if (type == "light") {
         document.body.style.backgroundColor = "";
@@ -273,17 +281,17 @@ const themeChanger = (type) => {
         displayMessage("Changed the theme to dark 🌚");
     }
 };
-let theme;
 themeSwitcher.addEventListener("click", () => {
     themeSwitcherBtn.classList.toggle("active");
     themeChanger("light");
-    theme = true;
+    localTheme = true;
     localStorage.setItem("theme", "light");
     if (themeSwitcherBtn.classList.contains("active")) {
         themeChanger("dark");
-        theme = false;
+        localTheme = false;
         localStorage.setItem("theme", "dark");
     }
+    console.log(localTheme);
 });
 const randomNumber = (min, max) => {
     return Math.random() * (max - min) + min;

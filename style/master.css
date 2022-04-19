@@ -48,6 +48,7 @@
   src: url(https://fonts.gstatic.com/s/plusjakartasans/v1/LDIbaomQNQcsA88c7O9yZ4KMCoOg4IA6-91aHEjcWuA_KUnNSg.ttf) format('truetype');
 }
 body {
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -89,6 +90,16 @@ body #popup p {
   justify-content: space-between;
   padding: 25px 10%;
 }
+@media screen and (max-width: 695px) {
+  .navbar {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 695px) {
+  .navbar .navbar__l {
+    display: none;
+  }
+}
 .navbar .navbar__logo svg {
   width: 50px;
   height: 50px;
@@ -107,6 +118,11 @@ body #popup p {
   outline: none;
   border: 2px #5f80b5 solid;
   box-sizing: border-box;
+}
+@media screen and (max-width: 500px) {
+  .navbar .navbar__search input {
+    width: 70vw;
+  }
 }
 .navbar .navbar__search svg {
   position: absolute;
@@ -127,6 +143,11 @@ body #popup p {
   padding: 0 1rem;
   width: 318px;
   cursor: pointer;
+}
+@media screen and (max-width: 500px) {
+  .navbar .navbar__search .search__results {
+    width: 60vw;
+  }
 }
 .navbar .navbar__search .search__results .results__wrapper {
   display: flex;
@@ -170,6 +191,11 @@ body #popup p {
   background-color: #f5f5f5;
   cursor: pointer;
 }
+@media screen and (max-width: 500px) {
+  .navbar .navbar__theme {
+    margin-left: 10vw;
+  }
+}
 .navbar .navbar__theme .navbar__switch {
   position: absolute;
   left: 5px;
@@ -188,10 +214,20 @@ body #popup p {
   width: 1400px;
   max-width: 100%;
   margin: 0 auto;
-  padding: 3.5rem 0;
+  padding: 3.5rem 1rem;
+}
+@media screen and (max-width: 1430px) {
+  .main {
+    width: unset;
+  }
 }
 .main .main__random {
   color: #f5f5f5;
+}
+@media screen and (max-width: 500px) {
+  .main .main__random {
+    text-align: center;
+  }
 }
 .main .main__random h1 {
   font-weight: normal;
@@ -211,15 +247,37 @@ body #popup p {
   justify-content: space-evenly;
   margin-top: 2rem;
 }
+@media screen and (max-width: 1005px) {
+  .main .main__random .main__weather-info {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 385px) {
+  .main .main__random .main__weather-info {
+    display: unset;
+  }
+}
 .main .main__random .main__weather-info .weather__temperature {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+@media screen and (max-width: 500px) {
+  .main .main__random .main__weather-info .weather__temperature {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .main .main__random .main__weather-info .weather__temperature img {
   object-fit: contain;
   width: 200px;
   margin-right: 3rem;
+}
+@media screen and (max-width: 500px) {
+  .main .main__random .main__weather-info .weather__temperature img {
+    margin: 0;
+  }
 }
 .main .main__random .main__weather-info .weather__temperature .weather__temperature-info .weather__temperature-wrapper {
   display: inline-flex;
@@ -242,9 +300,29 @@ body #popup p {
   border-right: 1px solid #b1b1b1;
   height: 180px;
 }
+@media screen and (max-width: 1005px) {
+  .main .main__random .main__weather-info .weather__divider {
+    display: none;
+  }
+}
 .main .main__random .main__weather-info .weather__info {
   display: grid;
   grid-template-columns: auto auto auto;
+}
+@media screen and (max-width: 1005px) {
+  .main .main__random .main__weather-info .weather__info {
+    margin-top: 1rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .main .main__random .main__weather-info .weather__info {
+    grid-template-columns: auto auto;
+  }
+}
+@media screen and (max-width: 385px) {
+  .main .main__random .main__weather-info .weather__info {
+    display: unset;
+  }
 }
 .main .main__random .main__weather-info .weather__info .weather__info-wrapper {
   text-align: center;
@@ -261,10 +339,35 @@ body #popup p {
   font-weight: normal;
   font-size: 1rem;
 }
+.main .main__random #errPopup {
+  background-color: #191919;
+  padding: 1rem 1rem;
+  border-radius: 10px;
+  max-width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.main .main__random #errPopup::after {
+  content: "✓";
+  text-align: center;
+  color: #43b145;
+  width: 25px;
+  height: 25px;
+  background-color: #222222;
+  position: absolute;
+  left: 95%;
+  bottom: -10%;
+  border-radius: 50%;
+}
 .week__section {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
+  padding: 0 1rem;
   padding-top: 5vw;
 }
 .week__section .week__wrapper {
@@ -277,8 +380,10 @@ body #popup p {
   font-weight: normal;
   padding: 15px 45px;
   border-radius: 10px;
+  margin: 0.3rem 0;
   transition: background-color 0.5s ease-in-out;
   min-height: 247.34px;
+  min-width: 92px;
 }
 .week__section .week__wrapper .week__icon {
   width: 100%;
