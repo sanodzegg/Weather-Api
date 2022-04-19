@@ -1,4 +1,6 @@
-const API_KEY = "3904a619c0f5dcf46f467b1944ab6d1d";
+// const API_KEY = "3904a619c0f5dcf46f467b1944ab6d1d";
+const API_KEY = config.API_KEY;
+
 const getInfoBtn = document.getElementById("searchBtn")!;
 const inputValue = document.getElementById("search")!;
 
