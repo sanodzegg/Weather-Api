@@ -192,7 +192,8 @@ const findUserLocation = async (type:string) => {
         }
         navigator.geolocation.getCurrentPosition(success, error);
     } else if (type === "search") {
-        city = (inputValue as HTMLInputElement).value;
+        city = (searchResultName as HTMLElement).innerText;
+        
         let resp = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
         let data = await resp.json();
 

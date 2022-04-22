@@ -152,7 +152,7 @@ const findUserLocation = (type) => __awaiter(void 0, void 0, void 0, function* (
         navigator.geolocation.getCurrentPosition(success, error);
     }
     else if (type === "search") {
-        city = inputValue.value;
+        city = searchResultName.innerText;
         let resp = yield fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
         let data = yield resp.json();
         generateForecast(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`, "search");
